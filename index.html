@@ -78,6 +78,46 @@
             font-size: 12px;
             color: #666;
         }
+        /* ── OVERLAY BẮT BUỘC NHẤN SHOPEE ── */
+        #overlay {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #overlay-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 380px; width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: pop 0.4s ease;
+        }
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        #overlay-btn {
+            display: block; width: 100%;
+            padding: 18px; font-size: 20px;
+            font-weight: bold; color: #fff;
+            background: #cc3300;
+            border: none; border-radius: 12px;
+            cursor: pointer; text-decoration: none;
+            transition: transform 0.2s;
+        }
+        #overlay-btn:hover { transform: scale(1.02); }
+        #skip-btn {
+            display: inline-block; margin-top: 14px;
+            font-size: 12px; color: #aaa;
+            text-decoration: none; cursor: pointer;
+        }
+        #skip-btn:hover { color: #666; }
     </style>
 </head>
 <body>
@@ -87,12 +127,12 @@
         
         <div class="news-card">
             <div class="card-header">Tin 1</div>
-            <img src="news_card_Bộ_Công_an_đề_xuất_bỏ_kiểm_tra.png" alt="Bộ Công an đề xuất bỏ kiểm tra nghiệm thu về PCCC với công trình, phương tiện">
+            <img src="news_card_Pha_bẻ_lái_không_tưởng_Cầu.png" alt="Pha &quot;bẻ lái&quot; không tưởng: Cầu thủ Brazil đang ngồi ăn cưới thì nhận &quot;vé vớt&quot; đi World Cup chỉ 4 ngày trước khai mạc">
             <div class="card-body">
-                <h3>Bộ Công an đề xuất bỏ kiểm tra nghiệm thu về PCCC với công trình, phương tiện</h3>
+                <h3>Pha &quot;bẻ lái&quot; không tưởng: Cầu thủ Brazil đang ngồi ăn cưới thì nhận &quot;vé vớt&quot; đi World Cup chỉ 4 ngày trước khai mạc</h3>
                 <div class="source">
-                    Nguồn: VietnamNet
-                     | <a href="https://vietnamnet.vn/bo-cong-an-de-xuat-bo-kiem-tra-nghiem-thu-ve-pccc-voi-cong-trinh-phuong-tien-2523847.html">Đọc bài gốc</a>
+                    Nguồn: Kênh 14
+                     | <a href="https://kenh14.vn/pha-be-lai-khong-tuong-cau-thu-brazil-dang-ngoi-an-cuoi-thi-nhan-ve-vot-di-world-cup-chi-4-ngay-truoc-khai-mac-21526060822070701.chn">Đọc bài gốc</a>
                 </div>
                 <a href="https://s.shopee.vn/gNVsQiOnE" class="btn-shopee" target="_blank" rel="noopener">
                     🛒 Mua sắm tại Shopee »
@@ -101,6 +141,20 @@
         </div>
         <div class="news-card">
             <div class="card-header">Tin 2</div>
+            <img src="news_card_Nghiên_cứu_sinh_tiến_sĩ_29_tuổ.png" alt="Nghiên cứu sinh tiến sĩ 29 tuổi ban ngày làm ở trường đại học, đêm chạy xe ôm công nghệ">
+            <div class="card-body">
+                <h3>Nghiên cứu sinh tiến sĩ 29 tuổi ban ngày làm ở trường đại học, đêm chạy xe ôm công nghệ</h3>
+                <div class="source">
+                    Nguồn: Kênh 14
+                     | <a href="https://kenh14.vn/nghien-cuu-sinh-tien-si-29-tuoi-ban-ngay-lam-o-truong-dai-hoc-dem-chay-xe-om-cong-nghe-215260608202331099.chn">Đọc bài gốc</a>
+                </div>
+                <a href="https://s.shopee.vn/gNVsQiOnE" class="btn-shopee" target="_blank" rel="noopener">
+                    🛒 Mua sắm tại Shopee »
+                </a>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="card-header">Tin 3</div>
             <img src="news_card_6_loại_rau_củ_là_bạn_tốt_của.png" alt="6 loại rau củ là &quot;bạn tốt&quot; của trí nhớ, giảm căng thẳng: Rất quen trên mâm cơm Việt, rất tốt cho sĩ tử mùa thi">
             <div class="card-body">
                 <h3>6 loại rau củ là &quot;bạn tốt&quot; của trí nhớ, giảm căng thẳng: Rất quen trên mâm cơm Việt, rất tốt cho sĩ tử mùa thi</h3>
@@ -115,5 +169,27 @@
         </div>
         <div class="footer">Bài viết có chứa link quảng cáo</div>
     </div>
+
+    <!-- OVERLAY BẮT BUỘC NHẤN SHOPEE -->
+    <div id="overlay" onclick="event.stopPropagation()">
+        <div id="overlay-box">
+            <h2>📢 Ưu đãi đặc biệt</h2>
+            <div style="font-size:14px;color:#888;margin-bottom:20px;">
+                Nhấn nút bên dưới để xem tin tức
+            </div>
+            <a id="overlay-btn" href="https://s.shopee.vn/gNVsQiOnE" target="_blank" onclick="unlock()">
+                Xem thêm tại Shopee »
+            </a>
+            <br>
+            <span id="skip-btn" onclick="unlock()">Bỏ qua →</span>
+        </div>
+    </div>
+
+    <script>
+    function unlock() {
+        document.getElementById('overlay').style.display = 'none';
+    }
+    </script>
+
 </body>
 </html>
